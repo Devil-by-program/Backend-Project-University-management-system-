@@ -13,72 +13,64 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
+import backgroundImage from '../assets/cuu.jpg'; // Import your background image
 
 const ChooseUser = ({ visitor }) => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const password = "zxc"
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const password = "zxc";
 
-  const { status, currentUser, currentRole } = useSelector(state => state.user);;
+  const { status, currentUser, currentRole } = useSelector(state => state.user);
 
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [message, setMessage] = useState("");
 
   const navigateHandler = (user) => {
     if (user === "Admin") {
       if (visitor === "guest") {
-        const email = "yogendra@12"
-        const fields = { email, password }
-        setLoader(true)
-        dispatch(loginUser(fields, user))
-      }
-      else {
+        const email = "yogendra@12";
+        const fields = { email, password };
+        setLoader(true);
+        dispatch(loginUser(fields, user));
+      } else {
         navigate('/Adminlogin');
       }
-    }
-
-    else if (user === "Student") {
+    } else if (user === "Student") {
       if (visitor === "guest") {
-        const rollNum = "1"
-        const studentName = "Dipesh Awasthi"
-        const fields = { rollNum, studentName, password }
-        setLoader(true)
-        dispatch(loginUser(fields, user))
-      }
-      else {
+        const rollNum = "1";
+        const studentName = "Dipesh Awasthi";
+        const fields = { rollNum, studentName, password };
+        setLoader(true);
+        dispatch(loginUser(fields, user));
+      } else {
         navigate('/Studentlogin');
       }
-    }
-
-    else if (user === "Teacher") {
+    } else if (user === "Teacher") {
       if (visitor === "guest") {
-        const email = "tony@12"
-        const fields = { email, password }
-        setLoader(true)
-        dispatch(loginUser(fields, user))
-      }
-      else {
+        const email = "tony@12";
+        const fields = { email, password };
+        setLoader(true);
+        dispatch(loginUser(fields, user));
+      } else {
         navigate('/Teacherlogin');
       }
     }
-  }
+  };
 
   useEffect(() => {
     if (status === 'success' || currentUser !== null) {
       if (currentRole === 'Admin') {
         navigate('/Admin/dashboard');
-      }
-      else if (currentRole === 'Student') {
+      } else if (currentRole === 'Student') {
         navigate('/Student/dashboard');
       } else if (currentRole === 'Teacher') {
         navigate('/Teacher/dashboard');
       }
-    }
-    else if (status === 'error') {
-      setLoader(false)
-      setMessage("Network Error")
-      setShowPopup(true)
+    } else if (status === 'error') {
+      setLoader(false);
+      setMessage("Network Error");
+      setShowPopup(true);
     }
   }, [status, currentRole, navigate, currentUser]);
 
@@ -142,8 +134,11 @@ const ChooseUser = ({ visitor }) => {
 export default ChooseUser;
 
 const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
-  height: 120vh;
+  background-image: url(${backgroundImage});
+  background-size: cover;  /* Cover the entire container */
+  background-position: center; /* Center the image */
+  height: 100vh;
+  width:100vw;
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -152,13 +147,13 @@ const StyledContainer = styled.div`
 const StyledPaper = styled(Paper)`
   padding: 20px;
   text-align: center;
-  background-color: #1f1f38;
-  color:rgba(255, 255, 255, 0.6);
-  cursor:pointer;
+  background-color: red;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 
   &:hover {
-    background-color: #2c2c6c;
-    color:white;
+    background-color: #EB212E;
+    color: white;
   }
 `;
 
