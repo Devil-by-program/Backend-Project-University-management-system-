@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
-import backgroundImage from '../assets/cuu.jpg'; // Import your background image
+import backgroundImage from '../assets/dash.jpg'; // Import your background image
 
 const ChooseUser = ({ visitor }) => {
   const dispatch = useDispatch();
@@ -152,8 +152,11 @@ const StyledPaper = styled(Paper)`
   cursor: pointer;
 
   &:hover {
-    background-color: #EB212E;
-    color: white;
+    background-color: 	#32CD32;  /* Change background color */
+    color: white;               /* Change text color */
+    transform: scale(1.08);     /* Slightly increase the size */
+    box-shadow: 0 8px 16px rgba(1, 0, 0, 0.9); /* Add a shadow effect */
+    transition: all 0.3s ease;
   }
 `;
 

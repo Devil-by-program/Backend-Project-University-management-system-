@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
+import {
+    Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline,
+    IconButton, InputAdornment, CircularProgress, Backdrop
+} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import bgpic from "../assets/cu.jpg"
-import { LightPurpleButton } from '../components/buttonStyles';
+import bgpic from "../assets/admin.jpg"
+import { GreenButton } from '../components/buttonStyles';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
@@ -135,7 +138,7 @@ const LoginPage = ({ role }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+                        <Typography variant="h4" sx={{ mb: 2, color: "#32CD32" }}>
                             {role} Login
                         </Typography>
                         <Typography variant="h7">
@@ -185,6 +188,22 @@ const LoginPage = ({ role }) => {
                                     error={emailError}
                                     helperText={emailError && 'Email is required'}
                                     onChange={handleInputChange}
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: '#32CD32', // Default border color
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: '#32CD32', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: '#32CD32', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiFormLabel-root.Mui-focused': {
+                                            color: '#32CD32', // Label color when focused
+                                        },
+                                    }}
                                 />
                             )}
                             <TextField
@@ -212,17 +231,34 @@ const LoginPage = ({ role }) => {
                                         </InputAdornment>
                                     ),
                                 }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': {
+                                            borderColor: '#32CD32', // Default border color
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#32CD32', // Border color on hover
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#32CD32', // Border color when focused
+                                        },
+                                    },
+                                    '& .MuiFormLabel-root.Mui-focused': {
+                                        color: '#32CD32', // Label color when focused
+                                    },
+                                }}
                             />
                             <Grid container sx={{ display: "flex", justifyContent: "space-between" }}>
                                 <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
+                                    control={<Checkbox sx={{ color: "#32CD32", '&.Mui-checked': { color: "#32CD32" } }} />}
                                     label="Remember me"
                                 />
                                 <StyledLink href="#">
                                     Forgot password?
                                 </StyledLink>
                             </Grid>
-                            <LightPurpleButton
+
+                            <GreenButton
                                 type="submit"
                                 fullWidth
                                 variant="contained"
@@ -231,12 +267,12 @@ const LoginPage = ({ role }) => {
                                 {loader ?
                                     <CircularProgress size={24} color="inherit" />
                                     : "Login"}
-                            </LightPurpleButton>
+                            </GreenButton>
                             <Button
                                 fullWidth
                                 onClick={guestModeHandler}
                                 variant="outlined"
-                                sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
+                                sx={{ mt: 2, mb: 3, color: "#32CD32", borderColor: "#32CD32" }}
                             >
                                 Login as Guest
                             </Button>
@@ -246,9 +282,9 @@ const LoginPage = ({ role }) => {
                                         Don't have an account?
                                     </Grid>
                                     <Grid item sx={{ ml: 2 }}>
-                                        <StyledLink to="/Adminregister">
-                                            Sign up
-                                        </StyledLink>
+                                        <Link to="/signup">
+                                            Signup
+                                        </Link>
                                     </Grid>
                                 </Grid>
                             }
@@ -270,22 +306,22 @@ const LoginPage = ({ role }) => {
                     }}
                 />
             </Grid>
+
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={guestLoader}
             >
-                <CircularProgress color="primary" />
-                Please Wait
+                <CircularProgress color="inherit" />
             </Backdrop>
-            <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
+            <Popup message={message} showPopup={showPopup} setShowPopup={setShowPopup} />
         </ThemeProvider>
     );
 }
 
-export default LoginPage
+export default LoginPage;
 
-const StyledLink = styled(Link)`
-  margin-top: 9px;
-  text-decoration: none;
-  color: #7f56da;
-`;
+const StyledLink = styled.a`
+text-decoration:none;
+color:#32CD32;
+cursor:pointer;
+`

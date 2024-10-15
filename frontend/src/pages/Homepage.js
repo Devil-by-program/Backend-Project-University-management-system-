@@ -2,29 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box, Button } from '@mui/material';
 import styled from 'styled-components';
-import Students from "../assets/cuimslogo.png";
-import BackgroundImage from "../assets/cufront.png"; // Add your background image here
-import { RedButton } from '../components/buttonStyles';
+
+import BackgroundImage from "../assets/s1.jpg"; // Add your background image here
+import { GreenButton } from '../components/buttonStyles';
 
 const Homepage = () => {
     return (
         <StyledContainer>
             <Grid container spacing={0} style={{ height: '100vh' }}>
                 <Grid item xs={12} md={6} style={{ display: 'flex' }}>
-                    <img 
-                        src={Students} 
-                        alt="students" 
-                        style={{ 
-                            width: '50%', // Make the image take full width
-                            height: '60px', // Maintain aspect ratio
-                            margin: '20px 0', // Adjust margins as needed
-                        }} 
-                    />
+                   
+                    
                 </Grid>
                 <Grid item xs={12} md={5} style={{ display: 'flex', alignItems: 'center' }}>
                     <StyledPaper>
                         <StyledTitle>
-                            Chandigarh University
+                            Student
                             
                             Management System
                         </StyledTitle>
@@ -34,20 +27,20 @@ const Homepage = () => {
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <RedButton variant="contained" fullWidth>
+                                <GreenButton variant="contained" fullWidth>
                                     Login
-                                </RedButton>
+                                </GreenButton>
                             </StyledLink>
                             <StyledLink to="/chooseasguest">
                                 <Button variant="outlined" fullWidth
-                                    sx={{ mt: 2, mb: 3, color: "red", borderColor: "red" }}
+                                    sx={{ mt: 2, mb: 3, color: "green", borderColor: "green" }}
                                 >
                                     Login as Guest
                                 </Button>
                             </StyledLink>
                             <StyledText>
                                 Don't have an account?{' '}
-                                <Link to="/Adminregister" style={{ color: "red" }}>
+                                <Link to="/Adminregister" style={{ color: "green" }}>
                                     Sign up
                                 </Link>
                             </StyledText>
@@ -61,8 +54,11 @@ const Homepage = () => {
 
 export default Homepage;
 
-const StyledContainer = styled(Container)`
-    width: 100%; // Set full width
+const StyledContainer = styled(Container).attrs({
+    disableGutters: true,
+    maxWidth: false, // Disable the default max-width constraint
+})`
+    width: 500px; // Set custom width
     height: 100vh; // Full height
     background-image: url(${BackgroundImage});
     background-size: cover; // Cover the entire viewport
@@ -75,7 +71,7 @@ const StyledContainer = styled(Container)`
 `;
 
 const StyledPaper = styled.div`
-    padding: 22px;
+    padding: 65px;
     height: auto; // Allow it to adjust based on content
     background: rgba(255, 255, 255, 0.8); // Slightly white background for readability
     border-radius: 8px; // Rounded corners
