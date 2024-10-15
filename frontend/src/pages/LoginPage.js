@@ -160,6 +160,22 @@ const LoginPage = ({ role }) => {
                                         error={rollNumberError}
                                         helperText={rollNumberError && 'Roll Number is required'}
                                         onChange={handleInputChange}
+                                        sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: '#32CD32', // Default border color
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: '#32CD32', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: '#32CD32', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiFormLabel-root.Mui-focused': {
+                                            color: '#32CD32', // Label color when focused
+                                        },
+                                    }}
                                     />
                                     <TextField
                                         margin="normal"
@@ -173,6 +189,22 @@ const LoginPage = ({ role }) => {
                                         error={studentNameError}
                                         helperText={studentNameError && 'Name is required'}
                                         onChange={handleInputChange}
+                                        sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: '#32CD32', // Default border color
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: '#32CD32', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: '#32CD32', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiFormLabel-root.Mui-focused': {
+                                            color: '#32CD32', // Label color when focused
+                                        },
+                                    }}
                                     />
                                 </>
                             ) : (

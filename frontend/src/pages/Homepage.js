@@ -17,7 +17,7 @@ const Homepage = () => {
                 <Grid item xs={12} md={5} style={{ display: 'flex', alignItems: 'center' }}>
                     <StyledPaper>
                         <StyledTitle>
-                            Student
+                            University
                             
                             Management System
                         </StyledTitle>

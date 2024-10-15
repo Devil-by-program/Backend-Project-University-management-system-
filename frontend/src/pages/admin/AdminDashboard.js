@@ -52,32 +52,39 @@ const AdminDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute'>
-                    <Toolbar sx={{ pr: '24px' }}>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={toggleDrawer}
-                            sx={{
-                                marginRight: '36px',
-                                ...(open && { display: 'none' }),
-                            }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography
-                            component="h1"
-                            variant="h6"
-                            color="inherit"
-                            noWrap
-                            sx={{ flexGrow: 1 }}
-                        >
-                            Admin Dashboard
-                        </Typography>
-                        <AccountMenu />
-                    </Toolbar>
-                </AppBar>
+                <AppBar
+    open={open}
+    position="absolute"
+    sx={{
+        backgroundColor: '#32CD32', // Light green color
+    }}
+>
+    <Toolbar sx={{ pr: '24px' }}>
+        <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
+            sx={{
+                marginRight: '36px',
+                ...(open && { display: 'none' }),
+            }}
+        >
+            <MenuIcon />
+        </IconButton>
+        <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1 }}
+        >
+            Admin Dashboard
+        </Typography>
+        <AccountMenu />
+    </Toolbar>
+</AppBar>
+
                 <Drawer variant="permanent" open={open} sx={open ? styles.drawerStyled : styles.hideDrawer}>
                     <Toolbar sx={styles.toolBarStyled}>
                         <IconButton onClick={toggleDrawer}>
@@ -149,7 +156,7 @@ const styles = {
         backgroundColor: (theme) =>
             theme.palette.mode === 'light'
                 ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+                : theme.palette.grey[100],
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
