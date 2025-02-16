@@ -15,11 +15,12 @@ dotenv.config();
 
 app.use(express.json({ limit: '10mb' }))
 app.use(cors({
-    origin: "https://universityy-management-system.netlify.app/", // Replace with your actual Netlify frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
-  }));
+  origin: "https://universityy-management-system.netlify.app",  // ✅ No trailing slash
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
 
 mongoose
     .connect(process.env.MONGO_URL, {
